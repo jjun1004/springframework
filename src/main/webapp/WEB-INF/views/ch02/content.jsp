@@ -64,7 +64,7 @@
 				Redirect
 		</div>
 		<div class="card-body">
-			<form method ="POST" action="/ch02/Login2"> 
+			<form method ="POST" action="/ch02/login1"> 
 			<%-- <form method ="POST" action="/ch02/Login2">	--%>		
 				  <div class="form-group">
 				    <label for="exampleInputEmail1">Email address</label>
