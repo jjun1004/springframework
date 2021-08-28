@@ -20,28 +20,28 @@
 		<script>
 			function requestGet() {
 				$.ajax({
-					url: "/ch02/method",
+					url: "${pageContext.request.contextPath}/ch02/method",
 					method: "GET"
 				})
 				.done((data) => {});
 			}
 			function requestPost(){
 				$.ajax({
-					url: "/ch02/method",
+					url: "${pageContext.request.contextPath}/ch02/method",
 					method: "POST"
 				})
 				.done((data) => {});
 			}
 			function requestPut() {
 				$.ajax({
-					url: "/ch02/method",
+					url: "${pageContext.request.contextPath}/ch02/method",
 					method: "PUT"
 				})
 				.done((data) => {});
 			}
 			function requestDelete(){
 				$.ajax({
-					url: "/ch02/method",
+					url: "${pageContext.request.contextPath}/ch02/method",
 					method: "DELETE"
 				})
 				.done((data) => {});
@@ -55,7 +55,7 @@
 				ModelAndView 리턴
 		</div>
 		<div class="card-body">
-				<a class= "btn btn-info btn-sm" href="/ch02/modelandview"> 요청</a>
+				<a class= "btn btn-info btn-sm" href="${pageContext.request.contextPath}/ch02/modelandview"> 요청</a>
 		</div>
 </div>
 
@@ -64,7 +64,7 @@
 				Redirect
 		</div>
 		<div class="card-body">
-			<form method ="POST" action="/ch02/login1"> 
+			<form method ="POST" action="${pageContext.request.contextPath}/ch02/login2"> 
 			<%-- <form method ="POST" action="/ch02/Login2">	--%>		
 				  <div class="form-group">
 				    <label for="exampleInputEmail1">Email address</label>

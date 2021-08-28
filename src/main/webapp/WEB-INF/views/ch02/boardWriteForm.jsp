@@ -7,7 +7,9 @@
 			게시물 작성
 		</div>
 		<div class="card-body">
-			<form method = "POST" action ="ch02/boardwrite">
+			<%--<form method = "POST" action ="<%=application.getContextPath() %>/ch02/boardwrite"> --%>
+			<form method = "POST" action ="${pageContext.request.contextPath}/ch02/boardwrite">
+			<%--절대경로 일 때 <form method = "POST" action ="boardwrite">--%>
 				  <div class="form-group">
 				    <label for="title">제목</label>
 				    <input type="text" class="form-control" id="title" >
