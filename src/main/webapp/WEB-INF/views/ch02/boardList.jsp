@@ -8,24 +8,24 @@
 		</div>
 		<div class="card-body">
 			<table class="table">
-			  <thead>
-			    <tr>
-			      <th scope="col">번호</th>
-			      <th scope="col">제목</th>
-			      <th scope="col">내용</th>
-			      <th scope="col">글쓴이</th>
-			    </tr>
-			  </thead>
-			  <tbody>
-			  	<%for(int i =1; i <=5; i++) {%>
-			    <tr>
-			      <th scope="row"><%=i %></th>
-			      <td>제목<%=i %></td>
-			      <td>내용<%=i %></td>
-			      <td>홍길동</td>
-			    </tr>
-			    <% } %>
-			  </tbody>
+				  <thead>
+				    <tr>
+				      <th scope="col">번호</th>
+				      <th scope="col">제목</th>
+				      <th scope="col">내용</th>
+				      <th scope="col">글쓴이</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+			  		<%for(int i =1; i <=5; i++) {%>
+			    		<tr>
+					      <th scope="row"><%=i %></th>
+					      <td>제목<%=i %></td>
+					      <td>내용<%=i %></td>
+					      <td>홍길동</td>
+			    		</tr>
+			    	<% } %>
+		  		</tbody>
 			</table>
 		</div>
 </div>

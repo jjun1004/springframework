@@ -45,7 +45,7 @@
                   <div class="input-group-prepend"><span class="input-group-text">param5</span></div>
                   <input type="date" name="param5" class="form-control" value="2030-12-05">
                </div>
-               <input class="mt-2 btn btn-info btn-sm " type="submit" value="요청" />
+               <input class="mt-2 btn btn-info btn-sm" type="submit" value="요청" />
             </form>
          </div>
       </div>

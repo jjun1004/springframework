@@ -6,6 +6,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.RequestParam;
 
 public class Ch03Dto {
+	// 필드는 기본값이 있기 때문에 @RequestParam(defaultValue ="0") int param2 하지 않아도 된다.
 	private String param1;
 	private int param2;
 	private double param3;
@@ -32,7 +33,7 @@ public class Ch03Dto {
 	public void setParam3(double param3) {
 		this.param3 = param3;
 	}
-	public boolean isParam4() {
+	public boolean isParam4() { 
 		return param4;
 	}
 	public void setParam4(boolean param4) {
