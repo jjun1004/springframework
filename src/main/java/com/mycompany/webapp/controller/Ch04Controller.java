@@ -57,7 +57,7 @@ public class Ch04Controller {
 		}	else {
 			logger.info("정상 요청 처리 후 응답 제공");
 			//redirect
-			return "redirect:/ch04/content";
+			return "redirect:/";
 		}
 	}
 	
@@ -82,7 +82,7 @@ public class Ch04Controller {
 			} else {
 				logger.info("정상 요청 처리 후 응답 제공");
 				//redirect
-				return "redirect: /ch04/content";
+				return "redirect:";
 			}
 	}
 	

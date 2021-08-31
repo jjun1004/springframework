@@ -46,7 +46,7 @@
                   <input type="date" name="param5" class="form-control">
                   <span class="param5-error text-danger"></span>
                </div>
-               <input class="mt-2 btn btn-info btn-sm" type="submit" value="POST 방식 요청" />
+               <input class="mt-2 btn btn-info btn-sm" type="submit" value="요청" />
             </form>
          </div>
          <script>
@@ -60,7 +60,7 @@
          		//입력 길이 체크
           		let param1 = form.param1.value;
          		const param1Error = document.querySelector("#form0 .param1-error");
-         		param1Error.innterHTML = "";
+         		param1Error.innerHTML = "";
          		if(param1 === ""){
          			param1Error.innerHTML = "필수 입력 사항";
          			checkResult = false;
@@ -71,6 +71,7 @@
          			};
          		} 
          		
+         		// 정규 표현식을 이용한 전화번호 형식 체크
           		let param2 = form.param2.value;
          		const param2Error = document.querySelector("#form0 .param2-error");
          		param2Error.innerHTML = "";
@@ -88,7 +89,7 @@
          		
          		let param3 = form.param3.value;
          		const param3Error = document.querySelector("#form0 .param3-error");
-         		param3Error.innterHTML = "";
+         		param3Error.innerHTML = "";
          		if(param3 === ""){
          			param3Error.innerHTML = "필수 입력 사항";
          			checkResult = false;
@@ -105,7 +106,7 @@
          		let param5 = form.param5.value;
          		console.log(param5);
          		const param5Error = document.querySelector("#form0 .param5-error");
-         		param5Error.innterHTML = "";
+         		param5Error.innerHTML = "";
          		if(param5 === ""){
          			param5Error.innerHTML = "필수 입력 사항";
          			checkResult = false;
@@ -158,7 +159,7 @@
 					</div>
 				</form>
 				<div class="mt-2">
-					<button class="btn btn-info btn-sm" onclick="requestPost()">요청</button>
+					<button class="btn btn-info btn-sm" onclick="requestPost()">POST 방식 요청</button>
 				</div>
 			</div>
          <script>
@@ -186,21 +187,21 @@
             	}
             	
             
-            if(checkData) {
-               $.ajax({
-                  url:"method1",
-                  method:"post",
-                  data:{
-                      param1:param1,
-                      param2,
-                      param3,
-                      param4,
-                      param5,
-                  }
-               })
-               	.done(()=>{});
-            	}
-            }
+	            if(checkData) {
+	               $.ajax({
+	                  url:"method1",
+	                  method:"post",
+	                  data:{
+	                      param1:param1,
+	                      param2,
+	                      param3,
+	                      param4,
+	                      param5
+	                  }
+	               })
+	               	.done(()=>{});
+	            	}
+	            }
          </script>
       </div>
       
@@ -209,61 +210,61 @@
          		서버측 유효성 검사
          </div>
          <div class="card-body">
-         
-        <div class="card m-2">
-         <div class="card-header">
-         		회원 가입 폼 
-         </div>
-         <div class="card-body">
-         
-         	<form method="post" action="method2">
-                <div class="input-group">
-                   <div class="input-group-prepend"><span class="input-group-text">mid</span></div>
-                   <input type="text" name="mid" class="form-control" value="${joinForm.mid}" autocomplete="username">
-                   <form:errors cssClass="text-danger" path="joinForm.mid"/>
-                </div>
-                <div class="input-group">
-                   <div class="input-group-prepend"><span class="input-group-text">mpassword</span></div>
-                   <input type="password" name="mpassword" class="form-control" value="${joinForm.mpassword}" autocomplete="current-password">
-                   <form:errors cssClass="text-danger" path="joinForm.mpassword"/>
-                </div>
-                <div class="input-group">
-                   <div class="input-group-prepend"><span class="input-group-text">memail</span></div>
-                   <input type="text" name="memail" class="form-control" value="${joinForm.memail}">
-                   <form:errors cssClass="text-danger" path="joinForm.memail"/>
-                </div>
-                <div class="input-group">
-                   <div class="input-group-prepend"><span class="input-group-text">mtel</span></div>
-                   <input type="text" name="mtel" class="form-control" value="${joinForm.mtel}">
-                   <form:errors cssClass="text-danger" path="joinForm.mtel"/>
-                </div>
-                <input class="btn btn-info" type="submit" value="가입"/>
-            </form>
-            </div>
-            </div>
+		        <div class="card m-2">
+		         <div class="card-header">
+		         		회원 가입 폼 
+		         </div>
+		         <div class="card-body">
+			         	<form method="post" action="join">
+			                <div class="input-group">
+			                   <div class="input-group-prepend"><span class="input-group-text">mid</span></div>
+			                   <input type="text" name="mid" class="form-control" value="${joinForm.mid}" autocomplete="username">
+			                   <form:errors cssClass="text-danger" path="joinForm.mid"/>
+			                </div>
+			                <div class="input-group">
+			                   <div class="input-group-prepend"><span class="input-group-text">mpassword</span></div>
+			                   <input type="password" name="mpassword" class="form-control" value="${joinForm.mpassword}" autocomplete="current-password">
+			                   <form:errors cssClass="text-danger" path="joinForm.mpassword"/>
+			                </div>
+			                <div class="input-group">
+			                   <div class="input-group-prepend"><span class="input-group-text">memail</span></div>
+			                   <input type="text" name="memail" class="form-control" value="${joinForm.memail}">
+			                   <form:errors cssClass="text-danger" path="joinForm.memail"/>
+			                </div>
+			                <div class="input-group">
+			                   <div class="input-group-prepend"><span class="input-group-text">mtel</span></div>
+			                   <input type="text" name="mtel" class="form-control" value="${joinForm.mtel}">
+			                   <form:errors cssClass="text-danger" path="joinForm.mtel"/>
+			                </div>
+			                <input class="btn btn-info" type="submit" value="가입"/>
+			            </form>
+            		</div>
+            	</div>
+            
+            
             <div class="card m-2">
 		         <div class="card-header">
 		         		로그인 폼 
 		         </div>
-         <div class="card-body">
-         <form method="post" action="login">
-                     <div class="input-group">
-                        <div class="input-group-prepend"><span class="input-group-text">mid</span></div>
-                        <input type="text" name="mid" class="form-control" value="${loginForm.mid}">
-                        <form:errors cssClass="text-danger" path="loginForm.mid"/>
-                     </div>
-                     <div class="input-group">
-                        <div class="input-group-prepend"><span class="input-group-text">mpassword</span></div>
-                        <input type="password" name="mpassword" class="form-control" value="${loginForm.mpassword}">
-                        <form:errors cssClass="text-danger" path="loginForm.mpassword"/>
-                     </div>
-                     <input class="btn btn-info" type="submit" value="로그인"/>
-                  </form>
-       	</div>
-      </div>
-</div>
-</div>
-</div>
+		         <div class="card-body">
+		         <form method="post" action="login">
+		                     <div class="input-group">
+		                        <div class="input-group-prepend"><span class="input-group-text">mid</span></div>
+		                        <input type="text" name="mid" class="form-control" value="${loginForm.mid}">
+		                        <form:errors cssClass="text-danger" path="loginForm.mid"/>
+		                     </div>
+		                     <div class="input-group">
+		                        <div class="input-group-prepend"><span class="input-group-text">mpassword</span></div>
+		                        <input type="password" name="mpassword" class="form-control" value="${loginForm.mpassword}">
+		                        <form:errors cssClass="text-danger" path="loginForm.mpassword"/>
+		                     </div>
+		                     <input class="btn btn-info" type="submit" value="로그인"/>
+                		</form>
+       				</div>
+      			</div>
+			</div>
+		</div>
+	</div>
 </div>
 
 
