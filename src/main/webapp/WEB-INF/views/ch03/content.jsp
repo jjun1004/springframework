@@ -52,7 +52,7 @@
 
       <div class="card m-2">
          <div class="card-header">
-         		Post 방식으로 요청
+         		POST 방식으로 요청
          </div>
          <div class="card-body">
             <form method="post" action="method2">

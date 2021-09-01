@@ -4,6 +4,7 @@
 		xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0">
   
   <!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
+	<!-- 옵션 -->	
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:spring/root/*.xml</param-value>
@@ -36,7 +37,7 @@
 	    <filter-name>encodingFilter</filter-name>
 	    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
 	    <init-param>
-	      <param-name>encoding</param-name>
+	      <param-name>encoding</param-name> <!-- CharacterEncodingFilter의 encoding객체를 받아옴 -->
 	      <param-value>UTF-8</param-value>
 	    </init-param>
 	  </filter>
