@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import com.mycompany.webapp.controller.dto.Ch04Member;
+import com.mycompany.webapp.dto.Ch04Member;
 
 public class Ch04MemberJoinFormValidator  implements Validator {
 	private static final Logger logger = LoggerFactory.getLogger(Ch04MemberJoinFormValidator.class);

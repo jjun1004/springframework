@@ -17,13 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/ch02")
 public class Ch02Controller {
 	private static final Logger logger = LoggerFactory.getLogger(Ch02Controller.class);
-	
-//	@RequestMapping("/content")
-//	public String content() {
-//		logger.info("실행");
-//		return "ch02/content";
-//	}
-	
+		
 	@RequestMapping("/content")
 	public String content() {
 		logger.info("실행");
@@ -31,7 +25,7 @@ public class Ch02Controller {
 	}
 	
 //	@GetMapping("/method") // get으로 요청했을 때만 연결
-	
+	@RequestMapping(value="/method", method=RequestMethod.GET)
 	public String method1() {
 		logger.info("실행");
 		return "redirect:/ch02/content";

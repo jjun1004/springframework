@@ -1,4 +1,4 @@
-package com.mycompany.webapp.controller.dto;
+package com.mycompany.webapp.dto;
 
 import java.util.Date;
 

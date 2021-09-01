@@ -1,11 +1,11 @@
 package com.mycompany.webapp.validator;
 
-import com.mycompany.webapp.controller.dto.Ch04Member;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
+
+import com.mycompany.webapp.dto.Ch04Member;
 
 public class Ch04MemberIdValidator implements Validator {
 	private static final Logger logger = LoggerFactory.getLogger(Ch04MemberIdValidator.class);

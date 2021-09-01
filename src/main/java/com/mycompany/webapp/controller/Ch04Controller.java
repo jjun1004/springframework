@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.mycompany.webapp.controller.dto.Ch04Member;
+import com.mycompany.webapp.dto.Ch04Member;
 import com.mycompany.webapp.validator.Ch04MemberEmailValidator;
 import com.mycompany.webapp.validator.Ch04MemberIdValidator;
 import com.mycompany.webapp.validator.Ch04MemberPasswordValidator;

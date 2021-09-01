@@ -1,4 +1,4 @@
-package com.mycompany.webapp.controller.dto;
+package com.mycompany.webapp.dto;
 
 public class Ch04Member {
 	private String mid;

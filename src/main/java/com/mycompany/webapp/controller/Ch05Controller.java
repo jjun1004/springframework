@@ -155,7 +155,9 @@ public class Ch05Controller {
 		//Header
 		builder.setHeaderParam("alg", "HS256"); // 토큰도 유효기간이 있음
 		builder.setHeaderParam("typ", "JWT");
-		builder.setExpiration(new Date(new Date().getTime() + 1000*60*30)); //1970년부터 1/1000로 카운팅한 수.
+		//1970년부터 1/1000로 카운팅한 수가 getTime()
+		// 1000*60*30은 30분. (기준이 1/1000초이기 때문)
+		builder.setExpiration(new Date(new Date().getTime() + 1000*60*30)); 
 		//Payload
 		builder.claim("userid", userid);
 		builder.claim("useremail", useremail);
