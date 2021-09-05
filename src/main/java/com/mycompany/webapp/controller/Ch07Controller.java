@@ -73,7 +73,7 @@ public class Ch07Controller {
 	}
 	
 	@GetMapping("/objectSaveAndRead2")
-	public ModelAndView objectSaveAndRead2() { // 모델앤뷰는 옛날의 방식임(현대)
+	public ModelAndView objectSaveAndRead2() { // 모델앤뷰는 옛날의 방식임
 		logger.info("실행");
 		
 		Ch07Member member = new Ch07Member();
