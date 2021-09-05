@@ -74,15 +74,16 @@
 			                </div>
 			             </form>
 			            </c:if>
-					<div class = "mt-2">
-						<c:if test="${sessionMid == null }">
-							<a href="javascript:login()" class="btn btn-info btn-sm">로그인</a>
-						</c:if>
-						<c:if test="${sessionMid != null }">
-							<a href="javascript:logout()" class="btn btn-info btn-sm">로그아웃</a>
-						</c:if>
-					</div>
-					<script>
+			            
+						<div class = "mt-2">
+							<c:if test="${sessionMid == null }">
+								<a href="javascript:login()" class="btn btn-info btn-sm">로그인</a>
+							</c:if>
+							<c:if test="${sessionMid != null }">
+								<a href="javascript:logout()" class="btn btn-info btn-sm">로그아웃</a>
+							</c:if>
+						</div>
+						<script>
 							function login() { //유효성 검사는 생략
 								let mid  = $("#mid").val();
 								let mpassword = $("#mpassword").val(); 
@@ -111,31 +112,29 @@
 								});
 							}
 							
-							function logout() {
-								$.ajax({
-									url: "logoutAjax"
-								}).done((data) => {
-									// data = {result:"success"}
-									// 현재 페이지 다시 서버로 재전송
-									window.location.reload();
-								})
-							}
-					</script>
+								function logout() {
+									$.ajax({
+										url: "logoutAjax"
+									}).done((data) => {
+										// data = {result:"success"}
+										// 현재 페이지 다시 서버로 재전송
+										window.location.reload();
+									});
+								}
+							</script>
+						</div>
+					</div>
+		
+					<div class= "card">
+						<div class="card-header">
+								@SessionAttributes를 이용한 다단계 입력처리
+						</div>
+						<div class = "card-body">
+								<a href="inputStep1" class="btn btn-info btn-sm">1단계 입력</a>
+								
+						</div>
+					</div>	
 				</div>
 			</div>
-		
-				<div class= "card">
-					<div class="card-header">
-							@SessionAttributes를 이용한 다단계 입력처리
-					</div>
-					<div class = "card-body">
-							<a href="inputStep1" class = "btn btn-info btn-sm">1단계 입력</a>
-							
-					</div>
-				</div>
-				
-				
-		</div>
-</div>
 
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>

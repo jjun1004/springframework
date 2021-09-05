@@ -170,7 +170,6 @@ public class Ch07Controller {
 			@ModelAttribute("kind") String kind, 
 			@ModelAttribute("sex") String sex) {
 		logger.info("실행");
-		
 		logger.info("kind: " + kind);
 		logger.info("sex: " + sex);
 		

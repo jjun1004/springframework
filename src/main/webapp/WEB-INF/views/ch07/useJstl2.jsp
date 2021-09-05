@@ -26,7 +26,7 @@
 				 <tbody>
 				<c:forEach var="board" items="${boardList}"> <!-- 하나식 items에서 꺼내서 var로 넣음 for each문과 같음 -->
 				    <tr>
-						<th scope="row">${status.index}</th>
+						<th scope="row">${board.no}</th>
 						<td>${board.title}</td>
 						<td>${board.content}</td>
 						<td>${board.writer}</td>
