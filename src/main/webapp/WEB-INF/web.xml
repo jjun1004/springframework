@@ -19,6 +19,7 @@
 	<servlet>
 		<servlet-name>appServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<!-- contextLoader가 해당 위치의 설정 파일을 읽어, 해당 파일을 dispatcher servlet으로 만든다. -->
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>classpath:spring/dispatcher/*.xml</param-value> <!-- 설정파일 위치 변경 -->
@@ -29,7 +30,7 @@
 		
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
-		<url-pattern>/</url-pattern> <!-- http://localhost:8080/~~~ -->
+		<url-pattern>/</url-pattern> <!-- http://localhost:8080/~~~ 로 시작하는 요청이오면 서블릿을 작동-->
 	</servlet-mapping>
 
 	<!-- 문자 인코딩 필터 설정 -->
@@ -45,4 +46,10 @@
 	    <filter-name>encodingFilter</filter-name>
 	    <url-pattern>/*</url-pattern>
 	  </filter-mapping>
+	  
+	  <!-- 404 에러 처리 -->
+	  <error-page>
+	  	<error-code>404</error-code>
+	  	<location>/WEB-INF/views/error/404.jsp</location>
+	  </error-page>
 </web-app>
