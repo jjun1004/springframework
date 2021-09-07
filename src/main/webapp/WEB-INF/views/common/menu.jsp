@@ -17,7 +17,7 @@
                 <li class="nav-item mb-2">
                      <h6 class="text-white">
                      		<span class="mr-2">Ch03.</span>
-                     		<a class="text-white" href="${pageContext.request.contextPath}/ch03/content">Controller/File Upload & FileDownload</a>
+                     		<a class="text-white" href="${pageContext.request.contextPath}/ch03/content">>Controller/Request Parameter</a>
                      </h6> 
                 </li>
                 <li class="nav-item mb-2">
@@ -69,10 +69,17 @@
                      </h6> 
                 </li>
                 
-                  <li class="nav-item mb-2">
+                 <li class="nav-item mb-2">
                      <h6 class="text-white">
                      		<span class="mr-2">Ch11.</span>
                      		<a class="text-white" href="${pageContext.request.contextPath}/ch11/content">View/Spring Tag Library</a>
+                     </h6> 
+                </li>
+                
+                 <li class="nav-item mb-2">
+                     <h6 class="text-white">
+                     		<span class="mr-2">Ch12.</span>
+                     		<a class="text-white" href="${pageContext.request.contextPath}/ch12/content">View/BeanNameViewResolver</a>
                      </h6> 
                 </li>
 </ul>

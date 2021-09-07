@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<!-- ViewName을 JSP 경로로 해석 -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="order" value = "1"/>
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	
+	<!-- ViewName을 객체 이름으로 해석, jsp(html)가 아닌 프로그램같은 동적으로 만들어지는 것을 이용할 때 void~로 응답을 받도록해야하는데 재사용성이 좋지 않기 때문에 해당 빈을 추가-->
+	<!-- 못찾으면 InternalResourceViewResolver(jsp경로)로 다시가서 동작 -->
+	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<property name="order" value = "0"/>
+	</bean>
+	
+	
+</beans>

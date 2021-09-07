@@ -40,13 +40,14 @@ public class Ch09Controller {
 		logger.info("desc: " + desc);
 		
 		//파일 파트 내용 읽기
-		logger.info("file.originalname: " + attach.getOriginalFilename());
+		logger.info("file originalname: " + attach.getOriginalFilename());
 		logger.info("file contenttype: " + attach.getContentType());
 		logger.info("file size: " + attach.getSize());
 		
 		//파일 파트 데이터를 서버의 파일로 저장
 		String savedname = new Date().getTime() + "-"+ attach.getOriginalFilename();
-		File file = new File("/Users/kayjuni/hyndai_it&e/upload_files/" + savedname);
+//		File file = new File("/Users/kayjuni/hyndai_it&e/upload_files/" + savedname);
+		File file = new File("C:/hyndai_it&e/upload_files/"+savedname);
 		attach.transferTo(file);
 		
 		return "redirect:/ch09/content";
@@ -68,7 +69,7 @@ public class Ch09Controller {
 		
 		//파일 파트 데이터를 서버의 파일로 저장
 		String savedname = new Date().getTime() + "-"+ attach.getOriginalFilename();
-		File file = new File("/Users/kayjuni/hyndai_it&e/upload_files/" + savedname);
+		File file = new File("C:/hyndai_it&e/upload_files/"+savedname);
 		attach.transferTo(file);
 		
 		JSONObject jsonObject = new JSONObject();
@@ -91,15 +92,20 @@ public class Ch09Controller {
 //		return data; // responsebody에 data를 넣음
 //	}
 	
-	@GetMapping(value= "/filedownload")
+	@GetMapping("/filedownload")
 	public void filedownload(
 			int fileNo, 
 			HttpServletResponse response,
 			@RequestHeader("User-Agent") String userAgent) throws Exception {
+		
+		
 		//fileNo를 이용해서 DB에서 파일 정보를 가져오기
 		String contentType ="image/jpeg";
-		String origianFilename = "눈내리는마을.jpg";
-		String savedName = "1630656726370-눈내리는마을.jpg";
+		String originalFilename = "photo4.jpg";
+		String savedName = "1631014999176-photo4.jpg";
+//		맥
+//		String originalFilename = "눈내리는마을.jpg";
+//		String savedName = "1630656726370-눈내리는마을.jpg";
 		
 		//응답 바디의 데이터의 형식
 		response.setContentType(contentType);
@@ -107,19 +113,20 @@ public class Ch09Controller {
 		//브라우저별로 한글 파일명을 변환
 		if(userAgent.contains("Trident") || userAgent.contains("MSIE")) {
 			//IE11 이하 버전일 경우
-			origianFilename = URLEncoder.encode(origianFilename, "UTF-8");
+			originalFilename = URLEncoder.encode(originalFilename, "UTF-8");
 		} else {
 			// 크롬 엣지, 사파리 브라우저에서 한글 파일명을 변환
-			origianFilename = new String(origianFilename.getBytes("UTF-8"), "ISO-8859-1");
+			originalFilename = new String(originalFilename.getBytes("UTF-8"), "ISO-8859-1");
  		}
 		
 		
 		//파일을 강제 다운로드하도록 설정
-		response.setHeader("Content-Disposition", "attachment; filename =\"" +origianFilename + "\"");
+		response.setHeader("Content-Disposition", "attachment; filename =\"" +originalFilename + "\"");
 		
 		//파일로부터 데이터를 읽는 입력스트림 생성
 		
-		String filePath = "/Users/kayjuni/hyndai_it&e/upload_files/" + savedName;
+		/*String filePath = "/Users/kayjuni/hyndai_it&e/upload_files/" + savedName;*/
+		String filePath = "C:/hyndai_it&e/upload_files/" + savedName;
 		InputStream is = new FileInputStream(filePath);
 		
 		// 응답 바디에 출력하는 출력스트림 얻기

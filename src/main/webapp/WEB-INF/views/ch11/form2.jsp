@@ -49,7 +49,7 @@
 		<form:form method="post" action="form2" modelAttribute="member">
 		  <div class="form-group">
 		    <label for="mtype">Type</label>
-		    <form:select path="mtype" items="${typeList}" class="form-control"/>
+		    <form:select path="mtype" items="${typeList}" class="form-control"/> <!-- multiple = "multiple" -->
   			<!-- path는 필드이름을 적어야함. 위의 modelAttribute와 연결되어 member.mtype을 가져옴 자동적으로 path에 들어가있는 id와 name이 만들어지고, items안에있는 것을 for each처럼 하나씩 꺼내 option을 만듦 -->
   			</div>
   			

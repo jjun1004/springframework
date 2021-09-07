@@ -11,6 +11,7 @@
       <property name="basenames">
          <list>
             <value>message.ch04_error</value> <!-- message.ch04_error나 message/ch04_error 둘다 되나 패키지 아래 있다는 의미로 "." 사용 요망 -->
+         	<value>message.ch11_internationalization</value>
          </list>
       </property>
       <property name="defaultEncoding" value="UTF-8"/>
