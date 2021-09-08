@@ -10,4 +10,9 @@ public class Ch13BoardDao1 {
 	public Ch13BoardDao1() {
 		logger.info("실행"); // 생성자가 출력되고 객체가 만들어 졌는지 확인
 	}
+	
+	public void update() {
+		logger.info("실행");
+	}
+	
 }

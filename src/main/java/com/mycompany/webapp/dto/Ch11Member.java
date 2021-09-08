@@ -3,7 +3,7 @@ package com.mycompany.webapp.dto;
 import lombok.Data; 
 
 //getter , setter 추가안해도 롬복이 다 해줌
-@Data 
+@Data
 public class Ch11Member {
 	private String mid;
 	private String mname;
