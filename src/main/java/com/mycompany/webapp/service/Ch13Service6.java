@@ -15,7 +15,8 @@ public class Ch13Service6 {
 	
 	// 1 필드에 @Value붙혀 매핑하기
 	//service.prop4는 문자열, 문자열을 int로 받을 수 없음. private int prop4 불가
-	@Value("${service.prop4}") private String prop4; 
+	@Value("${service.prop4}") 
+	private String prop4; 
 	
 	// 2. 매개변수에 @Value붙히기
 	public Ch13Service6(

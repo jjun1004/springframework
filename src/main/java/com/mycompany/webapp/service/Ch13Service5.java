@@ -12,6 +12,7 @@ public class Ch13Service5 {
 	private int prop1;
 	private double prop2;
 	private boolean prop3;
+	private String prop4;
 	
 	public Ch13Service5(int prop1, double prop2) {
 		logger.info("실행");
