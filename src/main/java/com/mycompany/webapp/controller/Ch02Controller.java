@@ -77,7 +77,7 @@ public class Ch02Controller {
 	}
 	
 	@GetMapping("/boardwriteform")
-	public String boardWriteFrom() {
+	public String boardWriteForm() {
 		return "ch02/boardWriteForm";
 	}
 	

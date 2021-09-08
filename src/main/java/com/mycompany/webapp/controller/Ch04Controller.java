@@ -35,7 +35,7 @@ public class Ch04Controller {
 	}
 	
 	@InitBinder("joinForm")
-	public void joinFormValidator(WebDataBinder binder) {
+	public void joinFormSetValidator(WebDataBinder binder) {
 		logger.info("실행");
 //		binder.setValidator(new Ch04MemberJoinFormValidator());
 		
@@ -62,7 +62,7 @@ public class Ch04Controller {
 	}
 	
 	@InitBinder("loginForm")
-	public void loginFormValidator(WebDataBinder binder) {
+	public void loginFormSetValidator(WebDataBinder binder) {
 		logger.info("실행");
 //		binder.setValidator(new Ch04MemberJoinFormValidator());
 		

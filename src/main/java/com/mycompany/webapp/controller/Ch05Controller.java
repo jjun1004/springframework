@@ -44,6 +44,7 @@ public class Ch05Controller {
 		
 		String userAgent = request.getHeader("User-Agent");
 		logger.info("User-Agent: " + userAgent);
+		
 		if(userAgent.contains("Window")) {
 			logger.info("client OS: Windows");
 		}	else if(userAgent.contains("Macintosh")) {

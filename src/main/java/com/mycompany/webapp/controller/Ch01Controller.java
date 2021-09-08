@@ -14,8 +14,8 @@ public class Ch01Controller {
 	
 
 	@RequestMapping("/content") // http:localhost:8080/contextRoot - > /로 바꿨기 때문
-	public String home() { // 메소드 이름은 어노테이션 @RequestMapping("/home") 이랑 관련 없음
-		logger.info("실행2");
+	public String content() { // 메소드 이름은 어노테이션 @RequestMapping("/home") 이랑 관련 없음
+		logger.info("실행");
 		return "ch01/content"; // if ) home2.jsp -> return "home2" / src/main/webapp/WEB-INF/views/ 아래의 content.jsp를 연결
 	}
 }
