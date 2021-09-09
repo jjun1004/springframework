@@ -1,3 +1,9 @@
 /target/
-/.DS_Store
-/.factorypath
+.DS_Store
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
