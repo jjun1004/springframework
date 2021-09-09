@@ -1,5 +1,9 @@
 package com.mycompany.webapp.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.json.JSONObject;
@@ -113,17 +117,37 @@ public class Ch08Controller {
 		return json;
 	}
 	
-	@GetMapping(value = "/logoutAjax", produces="application/json; charset=UTF-8")
-	@ResponseBody
-	public String logoutAjax(HttpSession session) {
+		/*@GetMapping(value="/logoutAjax", produces="application/json; charset=UTF-8")
+		@ResponseBody
+		public String logoutAjax(HttpSession session) {
+			logger.info("실행");
+			
+			//session.invalidate();
+			session.removeAttribute("sessionMid");
+			
+			JSONObject jsonObject = new JSONObject();
+			jsonObject.put("result", "success");
+			String json = jsonObject,toString();
+			return json;
+		}*/
+	
+	@GetMapping("/logoutAjax")
+	public void logoutAjax(HttpSession session, HttpServletResponse response) throws IOException {
 		logger.info("실행");
 
 		session.invalidate();
+		//session.removeAttribute("sessionMid");
+		
+		response.setContentType("application/json; charset=UTF-8");
+		PrintWriter pw = response.getWriter();
 		
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("result", "success");
 		String json = jsonObject.toString(); 
-		return json;
+		
+		pw.print(json);
+		//pw.flush(); 메모리 비우고 전송. 이미 응답이 가서 응답헤더에 내용을 추가하지 못함
+		//pw.close(); dispatcherServlet이 close 함. 자동으로 flush해서 메모리로 전송
 	}
 	
 	@ModelAttribute("inputForm") // 앞에SessionAttributes를 붙히면 세션에 inputForm이름이 없을 때 딱 한번 실행 됨.
