@@ -63,10 +63,23 @@ public class Ch12FileDownloadView extends AbstractView {
 		// 응답 바디에 출력하는 출력스트림 얻기
 		OutputStream os = response.getOutputStream();
 		
-		//입력스트림 -> 출력스트림
+		//입력스트림 -> 출력스트림 [1]
 		FileCopyUtils.copy(is, os);
 		is.close();
 		os.flush();
 		os.close();
+		
+//		[2]
+//		byte[] data = new byte[1024];
+//		int readByteNum = -1;
+//		while(true) {
+//			readByteNum = is.read(data);
+//			if(readByteNum == -1) break;
+//			os.write(data, 0, readByteNum);
+//			os.flush();
+//		}
+//
+//		is.close();
+//		os.close();
 	}
 }
