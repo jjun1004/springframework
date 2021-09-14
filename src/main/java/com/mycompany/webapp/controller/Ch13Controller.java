@@ -17,7 +17,7 @@ import com.mycompany.webapp.service.Ch13Service5;
 @Controller
 @RequestMapping("/ch13")
 public class Ch13Controller {
-	private static final Logger logger =LoggerFactory.getLogger(Ch13Controller.class);
+	private static final Logger logger = LoggerFactory.getLogger(Ch13Controller.class);
 	
 	private Ch13Service1 ch13Service1;
 	

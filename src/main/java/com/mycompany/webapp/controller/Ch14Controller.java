@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.sql.DataSource;
@@ -15,10 +16,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.mycompany.webapp.dto.Ch14Board;
 import com.mycompany.webapp.dto.Ch14Member;
+import com.mycompany.webapp.dto.Pager;
+import com.mycompany.webapp.service.Ch14BoardService;
 import com.mycompany.webapp.service.Ch14MemberService;
 import com.mycompany.webapp.service.Ch14MemberService.JoinResult;
+import com.mycompany.webapp.service.Ch14MemberService.LoginResult;
 
 @Controller
 @RequestMapping("/ch14")
@@ -194,6 +200,93 @@ public class Ch14Controller {
 	
 	@PostMapping("/login")
 	public String login(Ch14Member member, Model model) {
-		return "redirect:/ch14/content";
+		LoginResult result = memberService.login(member);
+
+		if (result == LoginResult.SUCCESS) {
+			return "redirect:/ch14/content";
+		} else if (result == LoginResult.FAIL_MID) {
+			model.addAttribute("error", "아이디가 존재하지 않습니다.");
+			return "ch14/loginForm";
+		} else if (result == LoginResult.FAIL_MPASSWORD) {
+			model.addAttribute("error", "비밀번호가 잘못되었습니다.");
+			return "ch14/loginForm";
+		} else {
+			model.addAttribute("error", "알 수 없는 이유로 로그인이 되지 않았습니다. 다시 시도해 주세요.");
+			return "ch14/loginForm";
+		}
+	}
+	
+	@Resource
+	private Ch14BoardService boardService;
+	
+	// pagenation 준비를 위해 300개 글 쓰기
+	/*	boolean isFirst = true;
+		
+		@GetMapping("/boardList")
+		public String boardList(Model model) {
+			if(isFirst) {
+				for(int i =1; i<=300; i++) {
+					Ch14Board board = new Ch14Board();
+					board.setBtitle("제목" + i);
+					board.setBcontent("내용" + i);
+					board.setMid("user");
+					boardService.writeBoard(board);
+				}
+				isFirst = false;
+			}
+			
+			List<Ch14Board> boards = boardService.getBoards();
+			model.addAttribute("boards", boards); // request범위에 저장해야 jsp에서 쓸 수 있음.
+			return "ch14/boardList";
+		}*/
+	
+	
+	
+	@GetMapping("/boardList")
+	public String boardList(@RequestParam(defaultValue="1") int pageNo, Model model) {
+		int totalRows = boardService.getTotalBoardNum();
+		Pager pager = new Pager(5, 5, totalRows, pageNo);
+		model.addAttribute("pager", pager);
+		
+		List<Ch14Board> boards = boardService.getBoards(pager);
+		model.addAttribute("boards", boards); // request범위에 저장해야 jsp에서 쓸 수 있음.
+		return "ch14/boardList";
+	}
+	
+	@GetMapping("/boardWriteForm")
+	public String boardWriteForm() {
+		return "ch14/boardWriteForm";
+	}
+	
+	@PostMapping("/boardWrite")
+	public String boardWrite(Ch14Board board) {
+		boardService.writeBoard(board);
+		return "redirect:/ch14/boardList";
+	}
+	
+	@GetMapping("/boardDetail")
+	public String boardDetail(int bno, Model model) {
+		Ch14Board board = boardService.getBoard(bno);
+		model.addAttribute("board", board);
+		return "ch14/boardDetail";
+	}
+	
+	@GetMapping("/boardUpdateForm")
+	public String boardUpdateForm(int bno, Model model) {
+		Ch14Board board = boardService.getBoard(bno);
+		model.addAttribute("board", board);
+		return "ch14/boardUpdateForm";
+	}
+	
+	@PostMapping("/boardUpdate")
+	public String boardUpdate(Ch14Board board) {
+		boardService.updateBoard(board);
+		return "redirect:/ch14/boardDetail?bno=" + board.getBno();
+	}
+	
+	@GetMapping("/boardDelete")
+	public String boardDelete(int bno) {
+		boardService.removeBoard(bno);
+		return "redirect:/ch14/boardList";
 	}
 }

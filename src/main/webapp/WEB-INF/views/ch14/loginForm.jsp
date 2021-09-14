@@ -13,7 +13,7 @@
 				</div>
 			</c:if>
 		
-	      <form method="post" action="join">
+	      <form method="post" action="login">
 	           <div class="input-group">
 	              <div class="input-group-prepend"><span class="input-group-text">mid</span></div>
 	              <input type="text" name="mid" class="form-control">
