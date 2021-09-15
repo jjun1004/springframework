@@ -1,6 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> --%>
-
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 
 <div class = "card m-2">
@@ -43,16 +42,16 @@
 				${status.last}  	<!– 현재 루프가 마지막인지 반환 –>  
 			--%>
 			<c:forEach var="lang" items="${langs}" varStatus = "status"> <!-- 하나식 items에서 꺼내서 var로 넣음 for each문과 같음 -->
-			    <c:if test="${status.first}">
-			     	<tbody>
-			    </c:if>
-			    
-			    <tr>
-					<th scope="row">${status.index}</th>
+				    <c:if test="${status.first}">
+				     		<tbody>
+				    </c:if>
+					    
+				    <tr>
+				    <th scope="row">${status.index}</th>
 					<td>${lang}</td>
 			    </tr>
 			    
-				<c:if test="${status.last}">   
+					<c:if test="${status.last}">   
 			    	</tbody>
 			    </c:if>
 			</c:forEach>

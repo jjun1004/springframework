@@ -178,9 +178,7 @@ public class Ch05Controller {
 	@GetMapping("/getJwtCookie")
 	public String getJwtCookie(@CookieValue String jwt) throws Exception {
 		logger.info("실행");
-		
 		logger.info(jwt);
-		
 		JwtParser parser = Jwts.parser();
 		String secretKey = "abc12345";
 		parser.setSigningKey(secretKey.getBytes("UTF-8"));
@@ -188,7 +186,7 @@ public class Ch05Controller {
 		Claims claims = jws.getBody();
 		String userid = claims.get("userid", String.class);
 		String useremail = claims.get("useremail", String.class);
-		String username = claims.get("userid", String.class);
+		String username = claims.get("username", String.class);
 		logger.info("userid: " + userid);
 		logger.info("useremail: " + useremail);
 		logger.info("username: " + username);

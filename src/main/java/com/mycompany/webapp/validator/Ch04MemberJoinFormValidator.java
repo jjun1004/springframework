@@ -30,8 +30,8 @@ public class Ch04MemberJoinFormValidator  implements Validator {
 		if(member.getMid() == null || member.getMid().trim().equals("")) {
 			errors.rejectValue("mid", "errors.mid.required");
 		} else {
-			if(member.getMid().length() < 4) {
-				errors.rejectValue("mid", "errors.mid.minlength", new Object[] {4}, "");
+			if(member.getMid().length() < 8) {
+				errors.rejectValue("mid", "errors.mid.minlength", new Object[] {8}, "");
 			}
 		}
 		
@@ -39,7 +39,7 @@ public class Ch04MemberJoinFormValidator  implements Validator {
 		if(member.getMpassword() == null || member.getMpassword().trim().equals("")) {
 			errors.rejectValue("mpassword", "errors.mpassword.required");
 		} else {
-			if(member.getMpassword().length() < 4) {
+			if(member.getMpassword().length() < 8) {
 				errors.rejectValue("mpassword", "errors.mpassword.minlength", new Object[] {8}, "");
 			}
 		}

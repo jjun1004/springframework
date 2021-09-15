@@ -17,8 +17,8 @@
                    <input type="password" name="mpassword" class="form-control">
                 </div>
                 <div class = "mt-2">
-	                <input class="btn btn-info btn-sm mt-2" type="submit" value="로그인"/>
-	                <input class="btn btn-info btn-sm mt-2" type="reset" value="다시작성"/>
+	                <input class="btn btn-info btn-sm" type="submit" value="로그인"/>
+	                <input class="btn btn-info btn-sm" type="reset" value="다시작성"/>
 	                <a class="btn btn-info btn-sm" href="content" >취소</a>
                 </div>
              </form>

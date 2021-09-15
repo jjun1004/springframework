@@ -23,12 +23,12 @@ public class Ch04MemberPasswordValidator implements Validator{
 		Ch04Member member = (Ch04Member) target;
 		
 		//mpassword 검사
-				if(member.getMpassword() == null || member.getMpassword().trim().equals("")) {
-					errors.rejectValue("mpassword", "errors.mpassword.required");
-				} else {
-					if(member.getMpassword().length() < 4) {
-						errors.rejectValue("mpassword", "errors.mpassword.minlength", new Object[] {8}, "");
-					}
-				}
+		if(member.getMpassword() == null || member.getMpassword().trim().equals("")) {
+			errors.rejectValue("mpassword", "errors.mpassword.required");
+		} else {
+			if(member.getMpassword().length() < 8) {
+				errors.rejectValue("mpassword", "errors.mpassword.minlength", new Object[] {8}, "");
+			}
+		}
 	}
 }

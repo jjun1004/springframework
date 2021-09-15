@@ -130,8 +130,7 @@
 								@SessionAttributes를 이용한 다단계 입력처리
 						</div>
 						<div class = "card-body">
-								<a href="inputStep1" class="btn btn-info btn-sm">1단계 입력</a>
-								
+							<a href="inputStep1" class="btn btn-info btn-sm">1단계 입력</a>	
 						</div>
 					</div>	
 				</div>
