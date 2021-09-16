@@ -199,6 +199,24 @@
 		    <version>1.9.4</version>
 		</dependency>
 		
+		<!--  Spring Security 5.5.1은 스프링 시큐리티 버젼임 -->
+			<dependency>
+			    <groupId>org.springframework.security</groupId>
+			    <artifactId>spring-security-web</artifactId>
+			    <version>5.5.1</version>
+			</dependency>
+			
+			<dependency>
+			    <groupId>org.springframework.security</groupId>
+			    <artifactId>spring-security-config</artifactId>
+			    <version>5.5.1</version>
+			</dependency>
+			
+			<dependency>
+			    <groupId>org.springframework.security</groupId>
+			    <artifactId>spring-security-taglibs</artifactId>
+			    <version>5.5.1</version>
+			</dependency>
 	</dependencies>
 	
 	<build>
