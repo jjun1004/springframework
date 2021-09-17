@@ -22,7 +22,7 @@
 								class="btn btn-info btn-sm">로그아웃</a> --%>
 							
 							<%--사이트간 요청 위조 방지가 활성화되어 있을 경우 --%>
-							<form method="post" action="${pageContext.request.contextPath}/logout" style="d-inline-block">
+							<form method="post" action="${pageContext.request.contextPath}/logout" class="d-inline-block">
 								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 								<button class="btn btn-info btn-sm">로그아웃</button>
 							</form>
