@@ -16,7 +16,7 @@
 	<!-- 로그인 실패시 authentication-failure-url로 감 -->
 	<!-- always-use-default-target="true"  기본 값은 false임 -->
 	<security:http>
-		<security:form-login
+			<!--<security:form-login
 				login-page="/ch17/loginForm"
 				username-parameter="mid"
 				password-parameter="mpassword"
@@ -24,7 +24,15 @@
 				always-use-default-target="false" 
 				default-target-url="/"
 				authentication-failure-url="/ch17/loginForm"
-				/>
+				/> -->
+				
+				<security:form-login
+						login-page="/ch17/loginForm"
+						username-parameter="mid"
+						password-parameter="mpassword"
+						login-processing-url="/login"
+						authentication-success-handler-ref="authenticationSuccessHandler"
+						authentication-failure-handler-ref="authenticationSuccessHandler"/>
 				
 				<!--  로그아웃 설정 -->
 				<!-- logout-url은 바꿀 수 없음 logout-url="/logout" 고정 -->
@@ -98,4 +106,9 @@
 													data-source-ref="dataSource"
 													users-by-username-query="SELECT mid, mpassword, menabled FROM member WHERE mid=?"
 													authorities-by-username-query="SELECT mid, mrole FROM member WHERE mid=?"/>
+
+	<!-- 인증 성공 또는 실패시 실행되는 핸들러 객체 설정 -->
+	<bean id="authenticationSuccessHandler" class="com.mycompany.webapp.security.Ch17AuthenticationSuccessHandler"></bean>
+	
+	<bean id="authenticationFailureHandler" class="com.mycompany.webapp.security.Ch17AuthenticationFailureHandler"></bean>
 </beans>
