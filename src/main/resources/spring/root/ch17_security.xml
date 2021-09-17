@@ -96,7 +96,7 @@
 				<security:authentication-provider ref="daoAuthenticationProvider"/>
 		</security:authentication-manager>
 		
-		<bean id = "daoAuthenticationProvider"
+		<bean id="daoAuthenticationProvider"
 					class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
 				<property name ="userDetailsService" ref="jdbcUserService"/>
 				<property name ="authoritiesMapper" ref="roleHierarchyAuthoritiesMapper"/>
@@ -108,7 +108,16 @@
 													authorities-by-username-query="SELECT mid, mrole FROM member WHERE mid=?"/>
 
 	<!-- 인증 성공 또는 실패시 실행되는 핸들러 객체 설정 -->
-	<bean id="authenticationSuccessHandler" class="com.mycompany.webapp.security.Ch17AuthenticationSuccessHandler"></bean>
+	<bean id="authenticationSuccessHandler" 
+		class="com.mycompany.webapp.security.Ch17AuthenticationSuccessHandler">
+		<!-- 로그인 성공후 리다에릭트로 이동할 경로 -->
+		<property name="defaultTargetUrl" value="/ch17/content"/>
+	</bean>
 	
-	<bean id="authenticationFailureHandler" class="com.mycompany.webapp.security.Ch17AuthenticationFailureHandler"></bean>
+	<bean id="authenticationFailureHandler" 
+			class="com.mycompany.webapp.security.Ch17AuthenticationFailureHandler">
+		<!--로그인 실패후 리다이렉트로 이동할 경로 -->	
+		<property name="defaultFailureUrl" value="/ch17/loginForm"/>
+	</bean>
+	
 </beans>
