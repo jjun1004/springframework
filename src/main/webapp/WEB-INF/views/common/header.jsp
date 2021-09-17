@@ -4,6 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 
 <!DOCTYPE html>
 <html>
@@ -23,22 +24,41 @@
       <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/app.css"/>
    </head>
    <body>
+   	<%-- 정적인 이미지만 resources 밑에 넣음 --%>
       <div class="d-flex flex-column vh-100">
 	         <nav class="navbar navbar-expand-sm bg-dark navbar-dark text-white font-weight-bold justify-content-between">
 	            <a class="navbar-brand" href="/"> 
 	               <img src="${pageContext.request.contextPath}/resources/images/logo-spring.png" width="30" height="30" class="d-inline-block align-top">
-	               Spring <%-- 정적인 이미지만 resources 밑에 넣음 --%>
+	               Spring 
 	            </a>
 	            <div>
 	               <div>
+	               		<%-- 
 	               		<c:if test="${sessionMid == null }">
-	                  		<%-- <a class="btn btn-success btn-sm" href="${pageContext.request.contextPath }/ch08/login">로그인</a> --%>
+	                  		<a class="btn btn-success btn-sm" href="${pageContext.request.contextPath }/ch08/login">로그인</a>
 	                  		<a class="btn btn-success btn-sm" href="${pageContext.request.contextPath }/ch15/login">로그인</a>
 	                  	</c:if>
 	                  	<c:if test="${sessionMid != null }">
-	                  		<%-- <a class="btn btn-success btn-sm" href="${pageContext.request.contextPath }/ch08/logout">로그아웃</a> --%>
+	                  		<a class="btn btn-success btn-sm" href="${pageContext.request.contextPath }/ch08/logout">로그아웃</a>
 	                  		<a class="btn btn-success btn-sm" href="${pageContext.request.contextPath }/ch15/logout">로그아웃</a>
 	                  	</c:if>
+	                  	--%>
+	                  	
+	                  	<sec:authorize access="isAnonymous()">
+							<a href="${pageContext.request.contextPath}/ch17/loginForm" class="btn btn-success btn-sm">로그인</a>
+						</sec:authorize>
+						
+						<sec:authorize access="isAuthenticated()">
+								<%--사이트간 요청 위조 방지가 비활성화되어 있을 경우 --%>
+								<%--<a href="${pageContext.request.contextPath}/logout" 
+									class="btn btn-success btn-sm">로그아웃</a> --%>
+								
+								<%--사이트간 요청 위조 방지가 활성화되어 있을 경우 --%>
+								<form method="post" action="${pageContext.request.contextPath}/logout">
+									<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+									<button class="btn btn-info btn-sm">로그아웃</button>
+								</form>
+						</sec:authorize>
 	               </div>
 	            </div>
 	         </nav>

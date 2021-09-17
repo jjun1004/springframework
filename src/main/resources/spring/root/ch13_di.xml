@@ -8,8 +8,8 @@
 
 	<bean id="ch13BoardDao1" class="com.mycompany.webapp.dao.Ch13BoardDao1"/> 
 
-<!-- 	생성자 주입 -->
-<!-- 	<bean id="ch13Service1" class="com.mycompany.webapp.service.Ch13Service1">
+	<!--생성자 주입 -->
+	<!--<bean id="ch13Service1" class="com.mycompany.webapp.service.Ch13Service1">
 		<constructor-arg ref="ch13BoardDao1"/>
 	</bean> -->
 	

@@ -5,5 +5,5 @@
 
 	<bean id = "ch13Controller" class="com.mycompany.webapp.controller.Ch13Controller">
 		<property name ="ch13Service1" ref="ch13Service1"/>
-		</bean>
+	</bean>
 </beans>
