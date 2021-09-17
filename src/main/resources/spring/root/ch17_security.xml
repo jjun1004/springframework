@@ -32,7 +32,7 @@
 						password-parameter="mpassword"
 						login-processing-url="/login"
 						authentication-success-handler-ref="authenticationSuccessHandler"
-						authentication-failure-handler-ref="authenticationSuccessHandler"/>
+						authentication-failure-handler-ref="authenticationFailureHandler"/>
 				
 				<!--  로그아웃 설정 -->
 				<!-- logout-url은 바꿀 수 없음 logout-url="/logout" 고정 -->
