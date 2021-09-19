@@ -27,14 +27,14 @@
 								<button class="btn btn-info btn-sm">로그아웃</button>
 							</form>
 							
-							<a href="javasciprt:userInfo()" class="btn btn-info btn-sm ml-2">사용자 정보</a>
+							<a href="javascript:userInfo()" class="btn btn-info btn-sm ml-2">사용자 정보</a>
 							<hr/>
 							<div id="userInfo"></div>
 						</sec:authorize>
 					</div>
 					<script>
 						function userInfo() {
-							$.ajx({
+							$.ajax({
 								url: "userInfo"
 							}).done((data) => {
 								//{mid:xxx, mrole:yyy, ip:zzz}
