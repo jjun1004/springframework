@@ -115,7 +115,7 @@
 	<!-- 인증 성공 또는 실패시 실행되는 핸들러 객체 설정 -->
 	<bean id="authenticationSuccessHandler" 
 		class="com.mycompany.webapp.security.Ch17AuthenticationSuccessHandler">
-		<!-- 로그인 성공후 리다에릭트로 이동할 경로 -->
+		<!-- 로그인 성공후 리다이렉트로 이동할 경로 -->
 		<property name="alwaysUseDefaultTargetUrl" value="false"/>
 		<property name="defaultTargetUrl" value="/"/>
 	</bean>
