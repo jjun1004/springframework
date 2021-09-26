@@ -35,7 +35,7 @@ public class Ch08Controller {
 	
 	@GetMapping(value = "/saveData", produces = "application/json; charset = UTF-8")
 	@ResponseBody
-	public String saveData(String name, HttpServletRequest request ,HttpSession session) {
+	public String saveData(String name, HttpServletRequest request, HttpSession session) {
 		logger.info("실행");
 		logger.info("name: " + name);
 		
