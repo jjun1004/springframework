@@ -31,7 +31,7 @@
 							
 							function readData() {
 								$.ajax({
-									url: "readData",
+									url: "readData"
 								})
 								.done((data) => {
 									console.log(data); //{name:"홍길동"}

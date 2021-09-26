@@ -3,6 +3,7 @@ package com.mycompany.webapp.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -28,13 +29,13 @@ public class Ch08Controller {
 	private static final Logger logger = LoggerFactory.getLogger(Ch08Controller.class);
 	
 	@RequestMapping("/content")
-	public String content() {
+	public String content(HttpSession session) {
 		return "ch08/content";
 	}
 	
 	@GetMapping(value = "/saveData", produces = "application/json; charset = UTF-8")
 	@ResponseBody
-	public String saveData(String name, HttpSession session) {
+	public String saveData(String name, HttpServletRequest request ,HttpSession session) {
 		logger.info("실행");
 		logger.info("name: " + name);
 		
