@@ -5,14 +5,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
 @Controller
 @RequestMapping("/ch01")  // ~controller.java 랑 관련이 없음
 public class Ch01Controller {
 	
 	private static final Logger logger = LoggerFactory.getLogger(Ch01Controller.class);
 	
-
 	@RequestMapping("/content") // http:localhost:8080/contextRoot - > /로 바꿨기 때문
 	public String content() { // 메소드 이름은 어노테이션 @RequestMapping("/home") 이랑 관련 없음
 		logger.info("실행");
